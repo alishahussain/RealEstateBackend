@@ -32,7 +32,7 @@ class Account(db.Model, UserMixin):
 
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
-    
+
 
 class House(db.Model, UserMixin):
     __tablename__ = 'houses'
@@ -69,7 +69,7 @@ class House(db.Model, UserMixin):
         self.priceEstimate = priceEstimate
         self.rentEstimate = rentEstimate
         self.imgSRC = imgSRC
-    
+
     def all_details(self):
         return {
             'id': self.id,
@@ -88,7 +88,7 @@ class House(db.Model, UserMixin):
             'rentEstimate': self.rentEstimate,
             'imgSRC': self.imgSRC
         }
-    
+
     def few_details(self):
         return {
             'id': self.id,
@@ -99,7 +99,7 @@ class House(db.Model, UserMixin):
             'bedrooms': self.bedrooms,
             'imgSRC': self.imgSRC
         }
-    
+
 
 class Favorite(db.Model):
     __tablename__ = 'favorites'
