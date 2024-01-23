@@ -1,4 +1,4 @@
-Address,city,state,zipcode,latitude,longitude,price,bathrooms,bedrooms,livingArea,homeType,PriceEstimate,RentEstimate,imgSrc
+address,city,state,zipcode,latitude,longitude,price,bathrooms,bedrooms,livingArea,homeType,PriceEstimate,RentEstimate,imgSrc
 "10644 Bellagio Rd, Los Angeles, CA 90077",Los Angeles,CA,90077,34.080402,-118.44406,195000000,20,7,,SINGLE_FAMILY,186955300,730387,https://photos.zillowstatic.com/fp/ac43a635192aa51507ed6454056d3c37-p_e.jpg
 "19 Del Mar, Newport Coast, CA 92657",Newport Coast,CA,92657,33.579117,-117.833084,89000000,8,5,14958,SINGLE_FAMILY,78081100,145896,https://photos.zillowstatic.com/fp/3034c1d317dd879f9a9068736e706166-p_e.jpg
 "1028 Ridgedale Dr, Beverly Hills, CA 90210",Beverly Hills,CA,90210,34.08456,-118.42676,85000000,18,12,24325,SINGLE_FAMILY,,,https://photos.zillowstatic.com/fp/5cc3439fa0519c43246a373e26315888-p_e.jpg
