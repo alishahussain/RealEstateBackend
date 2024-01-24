@@ -9,6 +9,9 @@ from flask.cli import AppGroup
 from __init__ import app, db, cors  # Definitions initialization
 from model.realEstateModels import initHouses
 from api.sample import realestate_api
+from api.covid import covid_api
+from api.joke import joke_api
+from api.user import user_api
 
 
 # setup APIs
@@ -28,10 +31,10 @@ from projects.projects import app_projects  # Blueprint directory import project
 db.init_app(app)
 
 # register URIs
-# app.register_blueprint(joke_api)  # register api routes
-# app.register_blueprint(covid_api)  # register api routes
-# app.register_blueprint(user_api)  # register api routes
-# app.register_blueprint(player_api)
+app.register_blueprint(joke_api)  # register api routes
+app.register_blueprint(covid_api)  # register api routes
+app.register_blueprint(user_api)  # register api routes
+app.register_blueprint(player_api)
 app.register_blueprint(realestate_api)
 app.register_blueprint(app_projects)  # register app pages
 
