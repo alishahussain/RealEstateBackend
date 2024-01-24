@@ -142,7 +142,7 @@ def initHouses():
                     homeType=row['homeType'] if pd.notna(row['homeType']) else None,
                     priceEstimate=row['PriceEstimate'] if pd.notna(row['PriceEstimate']) else None,
                     rentEstimate=row['RentEstimate'] if pd.notna(row['RentEstimate']) else None,
-                    imgSRC=row['imgSRC'] if pd.notna(row['imgSRC']) else None
+                    imgSRC=row['imgSrc'] if pd.notna(row['imgSrc']) else None
                 )
                 db.session.add(house)
                 db.session.commit()
