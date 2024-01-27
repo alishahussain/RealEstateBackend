@@ -2,7 +2,7 @@ from flask import Blueprint, jsonify  # jsonify creates an endpoint response obj
 from flask_restful import Api, request, Resource # used for REST API building
 import requests  # used for testing
 import random
-from __init__ import login_manager, app, db
+from __init__ import app, db
 from model.realEstateModels import House
 # from ml.RealEstateRecEngine import RecEngine
 # from ai.OpenAIEngine import CollegeAIEngine
