@@ -3,6 +3,7 @@ from random import randrange
 from datetime import date
 import os, base64
 import json
+from .realEstateModels import House, Favorite
 
 from __init__ import app, db
 from sqlalchemy.exc import IntegrityError
@@ -78,6 +79,7 @@ class User(db.Model):
     _uid = db.Column(db.String(255), unique=True, nullable=False)
     _password = db.Column(db.String(255), unique=False, nullable=False)
     _dob = db.Column(db.Date)
+    favorites = db.relationship('Favorite', backref='Account', uselist=True, lazy='dynamic')
     
     # Defines a relationship between User record and Notes table, one-to-many (one user to many notes)
     posts = db.relationship("Post", cascade='all, delete', backref='users', lazy=True)
