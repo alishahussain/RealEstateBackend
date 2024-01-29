@@ -77,5 +77,7 @@ app.cli.add_command(custom_cli)
 
 # this runs the application on the development server
 if __name__ == "__main__":
+    #from flask_cors import CORS
+    #CORS(app, supports_credentials=True, resources={r"/*": {"origins": "*"}})
     # change name for testing
     app.run(debug=True, host="0.0.0.0", port="8181")
