@@ -71,6 +71,16 @@ class UserAPI:
             return {'message': f'Processed {name}, either a format error or User ID {uid} is duplicate'}, 400
 
         @token_required
+        def delete(self, current_user):
+            body = request.get_json()
+            uid = body.get('uid')
+            users = User.query.all()
+            for user in users:
+                if user.uid == uid:
+                    user.delete()
+            return jsonify(user.read())
+
+        @token_required
         def put(self, current_user):  # Update method
             uid = request.headers.get('uid')
             print(uid)
