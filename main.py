@@ -12,7 +12,7 @@ from __init__ import app, db, cors  # Definitions initialization
 
 # setup APIs
 from model.realEstateModels import initHouses
-from api.sample import realestate_api
+from api.realestaste import realestate_api
 from api.user import user_api  # Blueprint import api definition
 from api.player import player_api
 # database migrations
