@@ -88,7 +88,6 @@ class Favorite(db.Model):
 def initHouses():
     with app.app_context():
         """Create database and tables"""
-        print("Creating college tables")
         db.create_all()
         house_count = db.session.query(House).count()
         if house_count > 0:
