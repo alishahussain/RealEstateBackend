@@ -145,7 +145,8 @@ class UserAPI:
 
                         token_payload = {
                             "_uid": user._uid,
-                            "role": user.role  # Add the role information to the token
+                            "role": user.role,  # Add the role information to the token
+                            "id": user.id
                         }
 
                         token = jwt.encode(

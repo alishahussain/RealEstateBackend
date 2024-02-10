@@ -3,7 +3,7 @@ from flask_restful import Api, request, Resource # used for REST API building
 import requests  # used for testing
 import random
 from __init__ import app, db
-from model.realEstateModels import House
+from model.realEstateModels import House, Favorite
 # from ml.RealEstateRecEngine import RecEngine
 from ai.OpenAIEngine import HouseAIEngine
 import os
@@ -46,7 +46,21 @@ class houses:
                 return jsonify(self.model.get_openai_answer(request.args.get("question")))
             else:
                 return jsonify("UNAUTHORIZED")
+    
+    class _addToFavorites(Resource):
+        def post(self):
+            favoriteHouse = Favorite(account_id=request.args.get("id"), house_id=request.args.get("house_id")) 
+            db.session.add(favoriteHouse)
+            db.session.commit()
+        
+    class _getFavorites(Resource):
+        def get(self):
+            houses_id = set([favorite.house_id for favorite in db.session.query(Favorite).filter(Favorite.account_id == request.args.get("id")).all()])
+            houses = [db.session.query(House).filter(House.id == house).first() for house in houses_id]
+            return jsonify([house.few_details() for house in houses])
         
     api.add_resource(_getHouses, "/houses")
     api.add_resource(_gethousedetails, "/housedetails")
     api.add_resource(_getOpenAIResponse, "/openai")
+    api.add_resource(_addToFavorites, "/addtofavorites")
+    api.add_resource(_getFavorites, "/getfavorites")
