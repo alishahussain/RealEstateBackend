@@ -80,15 +80,14 @@ class Favorite(db.Model):
     account_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     house_id = db.Column(db.Integer, db.ForeignKey('houses.id'))
 
-    def __init__(self, id, house_id):
-        self.id = id
+    def __init__(self, account_id, house_id):
+        self.account_id = account_id
         self.house_id = house_id
 
 
 def initHouses():
     with app.app_context():
         """Create database and tables"""
-        print("Creating college tables")
         db.create_all()
         house_count = db.session.query(House).count()
         if house_count > 0:

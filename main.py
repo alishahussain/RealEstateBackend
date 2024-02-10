@@ -12,7 +12,7 @@ from __init__ import app, db, cors  # Definitions initialization
 
 # setup APIs
 from model.realEstateModels import initHouses
-from api.sample import realestate_api
+from api.realestaste import realestate_api
 from api.user import user_api  # Blueprint import api definition
 from api.player import player_api
 # database migrations
@@ -52,8 +52,8 @@ def table():
 
 @app.before_request
 def before_request():
-    print("Hi")
     initHouses()
+    initUsers()
     # Check if the request came from a specific origin
     allowed_origin = request.headers.get('Origin')
     if allowed_origin in ['http://localhost:4100', 'http://127.0.0.1:4100', 'https://nighthawkcoders.github.io']:
@@ -77,5 +77,7 @@ app.cli.add_command(custom_cli)
 
 # this runs the application on the development server
 if __name__ == "__main__":
+    #from flask_cors import CORS
+    #CORS(app, supports_credentials=True, resources={r"/*": {"origins": "*"}})
     # change name for testing
     app.run(debug=True, host="0.0.0.0", port="8181")
