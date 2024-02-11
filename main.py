@@ -56,9 +56,11 @@ def before_request():
     initHouses()
     initUsers()
     # Check if the request came from a specific origin
-    allowed_origin = request.headers.get('Origin')
-    if allowed_origin in ['http://localhost:4100', 'http://127.0.0.1:4100', 'https://nighthawkcoders.github.io', 'https://real-estate-analyzation.github.io']:
+    """allowed_origin = request.headers.get('Origin')
+    print(allowed_origin)
+    if allowed_origin in ['http://localhost:4200', 'http://127.0.0.1:4200', 'https://nighthawkcoders.github.io', 'https://real-estate-analyzation.github.io']:
         cors._origins = allowed_origin
+        print(cors._origins)"""
 
 
 # Create an AppGroup for custom commands
