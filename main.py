@@ -8,7 +8,7 @@ from flask.cli import AppGroup
 
 # import "packages" from "this" project
 # from __init__ import app, db, cors  # Definitions initializatio
-from __init__ import app, db, cors
+from __init__ import app, db
 
 
 # setup APIs
@@ -84,4 +84,6 @@ if __name__ == "__main__":
     #cors = CORS(app)
     # CORS(app, supports_credentials=True, resources={r"/*": {"origins": "*"}})
     # change name for testing
+    from flask_cors import CORS
+    cors = CORS(app)
     app.run(debug=True, host="0.0.0.0", port="8181")
