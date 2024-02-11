@@ -14,7 +14,7 @@ These object can be used throughout project.
 # Setup of key Flask object (app)
 app = Flask(__name__)
 #cors = CORS(app, supports_credentials=True, methods=["GET", "POST", "PUT", "DELETE"])
-cors = CORS(app, supports_credentials=True, resources={r"/*": {"origins": "*"}})
+CORS(app, supports_credentials=True, resources={r"/*": {"origins": "*"}})
 
 # Setup SQLAlchemy object and properties for the database (db)
 dbURI = 'sqlite:///volumes/sqlite.db'

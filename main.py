@@ -7,7 +7,8 @@ from flask.cli import AppGroup
 
 
 # import "packages" from "this" project
-from __init__ import app, db, cors  # Definitions initialization
+# from __init__ import app, db, cors  # Definitions initializatio
+from __init__ import app, db
 
 
 # setup APIs
@@ -55,9 +56,9 @@ def before_request():
     initHouses()
     initUsers()
     # Check if the request came from a specific origin
-    allowed_origin = request.headers.get('Origin')
+    """allowed_origin = request.headers.get('Origin')
     if allowed_origin in ['http://localhost:4100', 'http://127.0.0.1:4100', 'https://nighthawkcoders.github.io', 'https://real-estate-analyzation.github.io']:
-        cors._origins = allowed_origin
+        cors._origins = allowed_origin"""
 
 
 # Create an AppGroup for custom commands
@@ -77,7 +78,8 @@ app.cli.add_command(custom_cli)
 
 # this runs the application on the development server
 if __name__ == "__main__":
-    #from flask_cors import CORS
-    #CORS(app, supports_credentials=True, resources={r"/*": {"origins": "*"}})
+    from flask_cors import CORS
+    cors = CORS(app)
+    # CORS(app, supports_credentials=True, resources={r"/*": {"origins": "*"}})
     # change name for testing
     app.run(debug=True, host="0.0.0.0", port="8181")
