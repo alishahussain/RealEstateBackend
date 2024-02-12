@@ -13,12 +13,11 @@ These object can be used throughout project.
 
 # Setup of key Flask object (app)
 app = Flask(__name__)
-#cors = CORS(app, supports_credentials=True, methods=["GET", "POST", "PUT", "DELETE"], 
-#            origins=['https://real-estate-analyzation.github.io', 'http://localhost:4200', 'http://127.0.0.1:4200'], 
-#            allow_headers=["Content-Type", "Authorization", "Access-Control-Allow-Credentials"]
-#            send_wildcard=True)
 
-cors = CORS(app, supports_credentials=True, methods=["GET", "POST", "PUT", "DELETE"])
+#cors = CORS(app, supports_credentials=True, methods=["GET", "POST", "PUT", "DELETE"])
+
+cors = CORS(app, supports_credentials=True, methods=["GET", "POST", "PUT", "DELETE"], 
+            origins=['https://real-estate-analyzation.github.io', 'http://localhost:4200', 'http://127.0.0.1:4200'])
 
 
 # Setup SQLAlchemy object and properties for the database (db)
