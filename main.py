@@ -8,7 +8,7 @@ from flask.cli import AppGroup
      
 # import "packages" from "this" project
 # from __init__ import app, db, cors  # Definitions initializatio
-from __init__ import app, db, cors
+from __init__ import app, db
 
 
 # setup APIs
@@ -49,7 +49,13 @@ def index():
 def table():
     return render_template("table.html")
 
+@app.before_first_request
+def activate_job():  # activate these items 
+    initHouses()
+    initUsers()
 
+
+'''
 @app.before_request
 def before_request():
     initHouses()
@@ -68,8 +74,8 @@ def before_request():
     #    cors._origins = allowed_origin
     #    print(cors._origins)
     """
-
-"""
+'''
+'''
 @app.after_request
 def after_request(response):
     #response.headers.add('Access-Control-Allow-Origin', 'http://localhost:8080')
@@ -84,7 +90,7 @@ def after_request(response):
     response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
     response.headers.add('Access-Control-Allow-Credentials', 'true')
     return response
-"""
+'''
 
 # Create an AppGroup for custom commands
 custom_cli = AppGroup('custom', help='Custom commands')
@@ -103,10 +109,4 @@ app.cli.add_command(custom_cli)
 
 # this runs the application on the development server
 if __name__ == "__main__":
-    #from flask_cors import CORS
-    #cors = CORS(app)
-    # CORS(app, supports_credentials=True, resources={r"/*": {"origins": "*"}})
-    # change name for testing
-    #from flask_cors import CORS
-    #cors = CORS(app)
     app.run(debug=True, host="0.0.0.0", port="8181")
