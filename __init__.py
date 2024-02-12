@@ -17,7 +17,13 @@ app = Flask(__name__)
 #            origins=['https://real-estate-analyzation.github.io', 'http://localhost:4200', 'http://127.0.0.1:4200'], 
 #            methods=["GET", "POST", "PUT", "DELETE"])
 
-CORS(app, resources={r"/*": {"origins": "*"}})
+cors = CORS(app, supports_credentials=True, 
+            origins=['https://real-estate-analyzation.github.io', 'http://localhost:4200', 'http://127.0.0.1:4200'], 
+            methods=["GET", "POST", "PUT", "DELETE"],
+            allow_headers=['Content-Type', 'Authorization'],
+            expose_headers=['Content-Type', 'Authorization'])
+
+#CORS(app, resources={r"/*": {"origins": "*"}})
 #CORS(app, supports_credentials=True, resources={r"/*": {"origins": "*"}})
 
 # Setup SQLAlchemy object and properties for the database (db)
