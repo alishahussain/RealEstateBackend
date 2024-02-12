@@ -17,6 +17,9 @@ cors = CORS(app, supports_credentials=True, methods=["GET", "POST", "PUT", "DELE
             origins=['https://real-estate-analyzation.github.io', 'http://localhost:4200', 'http://127.0.0.1:4200'], 
             send_wildcard=True)
 
+#cors = CORS(app, methods=["GET", "POST", "PUT", "DELETE"], send_wildcard=True)
+
+
 # Setup SQLAlchemy object and properties for the database (db)
 dbURI = 'sqlite:///volumes/sqlite.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
