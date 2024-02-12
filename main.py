@@ -55,6 +55,11 @@ def before_request():
     initHouses()
     initUsers()
 
+    allowed_origin = request.headers.get('Origin')
+    if allowed_origin in ['http://localhost:4100', 'http://127.0.0.1:4100', 'https://nighthawkcoders.github.io', 'https://real-estate-analyzation.github.io']:
+        cors._origins = allowed_origin
+    
+    """
     # Check if the request came from a specific origin
     allowed_origin = request.headers.get('Origin')
     cors._origins = allowed_origin
@@ -62,7 +67,9 @@ def before_request():
     #if allowed_origin in ['http://localhost:4200', 'http://127.0.0.1:4200', 'https://nighthawkcoders.github.io', 'https://real-estate-analyzation.github.io']:
     #    cors._origins = allowed_origin
     #    print(cors._origins)
+    """
 
+"""
 @app.after_request
 def after_request(response):
     #response.headers.add('Access-Control-Allow-Origin', 'http://localhost:8080')
@@ -72,12 +79,12 @@ def after_request(response):
     #if origin and origin in allowed_origins:
     #    response.headers.add('Access-Control-Allow-Origin', origin)
 
-    response.headers.add('Access-Control-Allow-Origin', 'https://real-estate-analyzation.github.io')
-    #response.headers.add('Access-Control-Allow-Origin', 'http://127.0.0.1:4200')
+    response.headers.add('Access-Control-Allow-Origin', request.headers.get('Origin'))
     response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
     response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
     response.headers.add('Access-Control-Allow-Credentials', 'true')
     return response
+"""
 
 # Create an AppGroup for custom commands
 custom_cli = AppGroup('custom', help='Custom commands')
