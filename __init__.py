@@ -13,15 +13,9 @@ These object can be used throughout project.
 
 # Setup of key Flask object (app)
 app = Flask(__name__)
-cors = CORS(app, supports_credentials=True, methods=["GET", "POST", "PUT", "DELETE"])
-
-"""
-cors = CORS(app, supports_credentials=True, 
+cors = CORS(app, supports_credentials=True, methods=["GET", "POST", "PUT", "DELETE"], 
             origins=['https://real-estate-analyzation.github.io', 'http://localhost:4200', 'http://127.0.0.1:4200'], 
-            methods=["GET", "POST", "PUT", "DELETE"],
-            allow_headers=['Content-Type', 'Authorization'],
-            expose_headers=['Content-Type', 'Authorization'])
-"""
+            send_wildcard=True)
 
 # Setup SQLAlchemy object and properties for the database (db)
 dbURI = 'sqlite:///volumes/sqlite.db'
