@@ -54,15 +54,14 @@ def activate_job():  # activate these items
     initHouses()
     initUsers()
 
-
-
+'''
 @app.before_request
 def before_request():
     allowed_origin = request.headers.get('Origin')
     if allowed_origin in ['http://localhost:4100', 'http://127.0.0.1:4100', 'https://nighthawkcoders.github.io', 'https://real-estate-analyzation.github.io']:
         cors._origins = allowed_origin
     
-'''
+
 @app.after_request
 def after_request(response):
     #response.headers.add('Access-Control-Allow-Origin', 'http://localhost:8080')
