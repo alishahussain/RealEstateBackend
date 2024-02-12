@@ -58,7 +58,6 @@ def before_request():
     # Check if the request came from a specific origin
     allowed_origin = request.headers.get('Origin')
     cors._origins = allowed_origin
-    
     #print(allowed_origin)
     #if allowed_origin in ['http://localhost:4200', 'http://127.0.0.1:4200', 'https://nighthawkcoders.github.io', 'https://real-estate-analyzation.github.io']:
     #    cors._origins = allowed_origin
@@ -67,12 +66,14 @@ def before_request():
 @app.after_request
 def after_request(response):
     #response.headers.add('Access-Control-Allow-Origin', 'http://localhost:8080')
-    allowed_origins = ['http://localhost:8080', 'http://localhost:4200', 'http://127.0.0.1:4200', 'https://nighthawkcoders.github.io', 'https://real-estate-analyzation.github.io']
+    #allowed_origins = ['http://localhost:8080', 'http://localhost:4200', 'http://127.0.0.1:4200', 'https://nighthawkcoders.github.io', 'https://real-estate-analyzation.github.io']
 
-    origin = request.headers.get('Origin')
-    if origin and origin in allowed_origins:
-        response.headers.add('Access-Control-Allow-Origin', origin)
+    #origin = request.headers.get('Origin')
+    #if origin and origin in allowed_origins:
+    #    response.headers.add('Access-Control-Allow-Origin', origin)
 
+    response.headers.add('Access-Control-Allow-Origin', 'https://real-estate-analyzation.github.io')
+    #response.headers.add('Access-Control-Allow-Origin', 'http://127.0.0.1:4200')
     response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
     response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
     response.headers.add('Access-Control-Allow-Credentials', 'true')
