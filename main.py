@@ -49,13 +49,10 @@ def index():
 def table():
     return render_template("table.html")
 
-def activate_job():
+@app.before_first_request
+def activate_job():  # activate these items 
     initHouses()
     initUsers()
-
-# Call the function before the first request
-activate_job()
-
 
 '''
 @app.before_request
