@@ -1,0 +1,8 @@
+DEBUG:root:Origin header value: http://127.0.0.1:4200
+INFO:werkzeug:127.0.0.1 - - [11/Feb/2024 17:27:03] "GET /api/house/houses HTTP/1.1" 200 -
+DEBUG:root:Origin header value: http://127.0.0.1:4200
+INFO:werkzeug:127.0.0.1 - - [11/Feb/2024 17:27:13] "OPTIONS /api/users/authenticate HTTP/1.1" 200 -
+DEBUG:root:Origin header value: http://127.0.0.1:4200
+INFO:werkzeug:127.0.0.1 - - [11/Feb/2024 17:27:13] "POST /api/users/authenticate HTTP/1.1" 200 -
+DEBUG:root:Origin header value: http://127.0.0.1:4200
+INFO:werkzeug:127.0.0.1 - - [11/Feb/2024 17:27:14] "GET /api/house/houses HTTP/1.1" 200 -
