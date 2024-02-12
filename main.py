@@ -8,7 +8,7 @@ from flask.cli import AppGroup
      
 # import "packages" from "this" project
 # from __init__ import app, db, cors  # Definitions initializatio
-from __init__ import app, db
+from __init__ import app, db, cors
 
 
 # setup APIs
@@ -23,8 +23,6 @@ from model.players import initPlayers
 # setup App pages
 # Blueprint directory import projects definition
 from projects.projects import app_projects
-
-import logging
 
 # Initialize the SQLAlchemy object to work with the Flask app instance
 db.init_app(app)
@@ -56,17 +54,15 @@ def table():
 def before_request():
     initHouses()
     initUsers()
-    print(request.headers.get('Origin'))
-    logging.basicConfig(filename='/volumes/app.log', level=logging.DEBUG)
-    origin = request.headers.get('Origin')
-    logging.debug(f'Origin header value: {origin}')
-    
+
     # Check if the request came from a specific origin
-    """allowed_origin = request.headers.get('Origin')
-    print(allowed_origin)
-    if allowed_origin in ['http://localhost:4200', 'http://127.0.0.1:4200', 'https://nighthawkcoders.github.io', 'https://real-estate-analyzation.github.io']:
-        cors._origins = allowed_origin
-        print(cors._origins)"""
+    allowed_origin = request.headers.get('Origin')
+    cors._origins = allowed_origin
+    
+    #print(allowed_origin)
+    #if allowed_origin in ['http://localhost:4200', 'http://127.0.0.1:4200', 'https://nighthawkcoders.github.io', 'https://real-estate-analyzation.github.io']:
+    #    cors._origins = allowed_origin
+    #    print(cors._origins)
 
 
 # Create an AppGroup for custom commands
