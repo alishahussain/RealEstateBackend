@@ -24,6 +24,7 @@ from model.players import initPlayers
 # Blueprint directory import projects definition
 from projects.projects import app_projects
 
+import logging
 
 # Initialize the SQLAlchemy object to work with the Flask app instance
 db.init_app(app)
@@ -56,6 +57,10 @@ def before_request():
     initHouses()
     initUsers()
     print(request.headers.get('Origin'))
+    logging.basicConfig(filename='app.log', level=logging.DEBUG)
+    origin = request.headers.get('Origin')
+    logging.debug(f'Origin header value: {origin}')
+    
     # Check if the request came from a specific origin
     """allowed_origin = request.headers.get('Origin')
     print(allowed_origin)
