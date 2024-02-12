@@ -5,7 +5,7 @@
 from flask import render_template, request
 from flask.cli import AppGroup
 
-
+     
 # import "packages" from "this" project
 # from __init__ import app, db, cors  # Definitions initializatio
 from __init__ import app, db
@@ -55,6 +55,7 @@ def table():
 def before_request():
     initHouses()
     initUsers()
+    print(request.headers.get('Origin'))
     # Check if the request came from a specific origin
     """allowed_origin = request.headers.get('Origin')
     print(allowed_origin)
@@ -84,6 +85,6 @@ if __name__ == "__main__":
     #cors = CORS(app)
     # CORS(app, supports_credentials=True, resources={r"/*": {"origins": "*"}})
     # change name for testing
-    from flask_cors import CORS
-    cors = CORS(app)
+    #from flask_cors import CORS
+    #cors = CORS(app)
     app.run(debug=True, host="0.0.0.0", port="8181")
